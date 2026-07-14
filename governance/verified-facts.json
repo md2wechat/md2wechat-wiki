@@ -1,0 +1,109 @@
+[
+  {
+    "id": "release.version",
+    "claim": "当前稳定版本",
+    "value": "3.1.0",
+    "source": "https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.1.0",
+    "source_commit": "f9af7a9110b2b472c8fc3fd9a3103863f6bf3862",
+    "verified_at": "2026-07-14",
+    "risk": "P0",
+    "status": "verified",
+    "used_by": ["md2wechat-guide", "md2wechat-wiki"],
+    "evidence_command": "git -C /root/go/src/md2wechat-skill describe --tags --exact-match"
+  },
+  {
+    "id": "cli.commands",
+    "claim": "顶层 CLI 命令",
+    "value": ["convert", "inspect", "advise", "preview", "config", "write", "humanize", "title", "upload_image", "download_and_upload", "generate_image", "generate_cover", "generate_infographic", "create_draft", "create_image_post", "test-draft", "providers", "themes", "prompts", "layout", "brand", "doctor", "skills", "capabilities", "version"],
+    "source": "https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/cmd/md2wechat/main.go",
+    "source_commit": "f9af7a9110b2b472c8fc3fd9a3103863f6bf3862",
+    "verified_at": "2026-07-14",
+    "risk": "P0",
+    "status": "verified",
+    "used_by": ["md2wechat-guide", "md2wechat-wiki"],
+    "evidence_command": "md2wechat capabilities --json"
+  },
+  {
+    "id": "themes.catalog",
+    "claim": "主题发现口径",
+    "value": {"catalog_total": 53, "selectable_total": 52, "api_selectable": 48, "ai_selectable": 4},
+    "source": "https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/cmd/md2wechat/discovery.go",
+    "source_commit": "f9af7a9110b2b472c8fc3fd9a3103863f6bf3862",
+    "verified_at": "2026-07-14",
+    "risk": "P1",
+    "status": "verified",
+    "used_by": ["md2wechat-guide", "md2wechat-wiki"],
+    "evidence_command": "md2wechat themes list --json"
+  },
+  {
+    "id": "layout.catalog",
+    "claim": "高级排版能力口径",
+    "value": {"recommended_scenarios": 68, "recommended_syntax_names": 53, "render_syntax_capabilities": 60, "compatibility_modules": 3, "base_enhancements": 4},
+    "source": "https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/internal/layoutcatalog/schema.go",
+    "source_commit": "f9af7a9110b2b472c8fc3fd9a3103863f6bf3862",
+    "verified_at": "2026-07-14",
+    "risk": "P1",
+    "status": "verified",
+    "used_by": ["md2wechat-guide", "md2wechat-wiki"],
+    "evidence_command": "md2wechat capabilities --json"
+  },
+  {
+    "id": "image.plan-mode",
+    "claim": "图片计划模式由宿主 Agent 执行且不直接调用图片服务",
+    "value": {"response_code": "IMAGE_PLAN_READY", "side_effects": false, "requires_provider": false},
+    "source": "https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/cmd/md2wechat/capabilities.go",
+    "source_commit": "f9af7a9110b2b472c8fc3fd9a3103863f6bf3862",
+    "verified_at": "2026-07-14",
+    "risk": "P0",
+    "status": "verified",
+    "used_by": ["md2wechat-guide", "md2wechat-wiki"],
+    "evidence_command": "md2wechat capabilities --json"
+  },
+  {
+    "id": "image.direct-mode",
+    "claim": "直接生成图片需要 Provider 和图片 API Key，并会调用外部服务",
+    "value": {"side_effects": true, "requires_provider": true, "requires_image_api_key": true},
+    "source": "https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/cmd/md2wechat/capabilities.go",
+    "source_commit": "f9af7a9110b2b472c8fc3fd9a3103863f6bf3862",
+    "verified_at": "2026-07-14",
+    "risk": "P0",
+    "status": "verified",
+    "used_by": ["md2wechat-guide", "md2wechat-wiki"],
+    "evidence_command": "md2wechat capabilities --json"
+  },
+  {
+    "id": "providers.catalog",
+    "claim": "图片 Provider 发现结果",
+    "value": ["gemini", "modelscope", "openai", "openrouter", "tuzi", "volcengine"],
+    "source": "https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/internal/imageprovider/provider.go",
+    "source_commit": "f9af7a9110b2b472c8fc3fd9a3103863f6bf3862",
+    "verified_at": "2026-07-14",
+    "risk": "P1",
+    "status": "verified",
+    "used_by": ["md2wechat-guide", "md2wechat-wiki"],
+    "evidence_command": "md2wechat providers list --json"
+  },
+  {
+    "id": "prompts.catalog",
+    "claim": "内置提示词发现结果",
+    "value": {"total": 32, "image": 25, "humanizer": 5, "refine": 1, "title": 1},
+    "source": "https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/internal/promptcatalog/catalog.go",
+    "source_commit": "f9af7a9110b2b472c8fc3fd9a3103863f6bf3862",
+    "verified_at": "2026-07-14",
+    "risk": "P1",
+    "status": "verified",
+    "used_by": ["md2wechat-guide", "md2wechat-wiki"],
+    "evidence_command": "md2wechat prompts list --json"
+  },
+  {
+    "id": "api.stable-endpoint",
+    "claim": "公开稳定转换接口",
+    "value": "POST https://www.md2wechat.cn/api/convert",
+    "source": "https://www.md2wechat.cn/api-docs",
+    "source_commit": "5eeb69cb3ed18042f34eb67f10faf9b8573c1f72",
+    "verified_at": "2026-07-14",
+    "risk": "P0",
+    "status": "verified",
+    "used_by": ["md2wechat-guide", "md2wechat-wiki"]
+  }
+]
