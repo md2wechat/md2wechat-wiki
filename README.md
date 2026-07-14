@@ -4,7 +4,7 @@
 
 ## 入口
 
-- [已核验事实](governance/verified-facts.json)
+- [已核验事实](governance/verified-facts.md)
 - [术语口径](governance/terminology.md)
 - [写作规范](governance/content-style.md)
 - [复核规则](governance/review-policy.md)
@@ -20,11 +20,6 @@
 | [awesome-wechat-markdown](https://github.com/md2wechat/awesome-wechat-markdown) | 微信 Markdown 生态目录 |
 | [md2wechat-wiki](https://github.com/md2wechat/md2wechat-wiki) | 证据、口径、复核状态和治理决策 |
 
-## 本地校验
+## 维护要求
 
-```bash
-npm test
-npm run validate
-```
-
-事实条目缺少来源、上游 commit、核验日期、风险或使用仓库时，校验会失败。
+事实条目需要写明来源、上游 commit、核验日期、风险级别和使用仓库。命令与版本变化先核对上游，再同步受影响的公开文档。

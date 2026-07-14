@@ -1,8 +1,0 @@
-{
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "test": "node --test",
-    "validate": "node scripts/validate-facts.mjs governance/verified-facts.json"
-  }
-}
