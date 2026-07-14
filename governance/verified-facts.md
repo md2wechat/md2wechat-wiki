@@ -7,7 +7,7 @@
 
 | 事实 | 核验结果 | 风险 | 证据 | 使用仓库 |
 |---|---|---|---|---|
-| 当前稳定版本 | `v3.1.0` | P0 | [Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.1.0)；精确 tag 对应 `f9af7a9` | Guide、Wiki |
+| 稳定版本 | `v3.1.0` | P0 | [Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.1.0)；精确 tag 对应 `f9af7a9` | Guide、Wiki |
 | 公开稳定转换接口 | `POST https://www.md2wechat.cn/api/convert` | P0 | [API 文档](https://www.md2wechat.cn/api-docs)；站点基线 `wechat-markdown-editor@5eeb69c` | Guide、Wiki |
 
 ## CLI 能力

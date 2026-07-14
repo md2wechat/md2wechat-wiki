@@ -19,11 +19,11 @@ md2wechat providers list --json
 md2wechat prompts list --json
 ```
 
-源码构建显示 `dev` 时，以当前 commit 的精确 tag 作为版本证据。发布二进制的 `version --json` 仍应返回正式版本号。
+源码构建显示 `dev` 时，以所检 commit 的精确 tag 作为版本证据。发布二进制的 `version --json` 仍应返回正式版本号。
 
 ## 使用规则
 
 - 原始来源优先于本仓登记。
 - 搜索摘要不能替代源码、Release 或正式文档。
-- 外部项目能力需要链接到项目文档或可复现测试。
+- 外部项目能力需要链接到项目文档或可复现验证结果。
 - GitHub Stars 会持续变化，不进入事实登记。
