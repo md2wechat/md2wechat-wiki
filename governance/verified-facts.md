@@ -34,12 +34,12 @@
 
 | 模式 | 核验结果 | 风险 | 证据 |
 |---|---|---|---|
-| 计划模式 | 返回 `IMAGE_PLAN_READY`；由宿主 Agent 执行；不要求 Provider；不直接调用图片服务 | P0 | [capabilities.go](https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/cmd/md2wechat/capabilities.go) |
-| 直接生成 | 需要 Provider 和图片 API Key；会调用外部图片服务 | P0 | [capabilities.go](https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/cmd/md2wechat/capabilities.go) |
+| 计划模式 | 返回 `IMAGE_PLAN_READY`；由宿主 Agent 执行；不要求 Provider；不直接调用图片服务 | P0 | [discovery.go](https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/cmd/md2wechat/discovery.go) |
+| 直接生成 | 需要 Provider 和图片 API Key；会调用外部图片服务 | P0 | [discovery.go](https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/cmd/md2wechat/discovery.go) |
 
 ## Provider 与提示词
 
-- 图片 Provider：`gemini`、`modelscope`、`openai`、`openrouter`、`tuzi`、`volcengine`。风险 P1；[源码](https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/internal/imageprovider/provider.go)；核验命令 `md2wechat providers list --json`。
+- 图片 Provider：`gemini`、`modelscope`、`openai`、`openrouter`、`tuzi`、`volcengine`。风险 P1；[源码](https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/internal/image/provider.go)；核验命令 `md2wechat providers list --json`。
 - 内置提示词：32 个，其中图片 25 个、humanizer 5 个、refine 1 个、title 1 个。风险 P1；[源码](https://github.com/geekjourneyx/md2wechat-skill/blob/f9af7a9110b2b472c8fc3fd9a3103863f6bf3862/internal/promptcatalog/catalog.go)；核验命令 `md2wechat prompts list --json`。
 
 本页事实由 Guide 和 Wiki 使用。数量变化时，先更新核验结果与日期，再检查引用页面。
