@@ -17,7 +17,7 @@
     "platforms": {
       "repository": "md2wechat/md2wechat-wiki",
       "path": "evidence/agent-platforms.json",
-      "sha": "ce5da934cd5264f2068f89be77f92e7790048811",
+      "sha": "474ef8b8398e9b21b79ed937e24cb3c13ce1505d",
       "schemaVersion": 1
     }
   }

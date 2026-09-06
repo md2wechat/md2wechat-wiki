@@ -8,14 +8,16 @@
       "vendor": "阿里巴巴",
       "officialUrl": "https://www.qianwen.com/",
       "evidenceUrls": [
-        "https://www.qianwen.com/"
+        "https://www.qianwen.com/",
+        "https://help.aliyun.com/zh/rpa/getting-started/develop-skills-for-qwenwork",
+        "https://help.aliyun.com/zh/qwenwork/qwenwork-extensions"
       ],
       "md2wechatStatus": "install-ready",
       "publiclySupported": false,
       "reviewedAt": "2026-09-06",
       "expiresAfterDays": 30,
       "invalidationConditions": [
-        "官方入口或安装机制发生变化",
+        "官方入口、在线 URL 安装或 SKILL.zip 安装机制发生变化",
         "超过 30 天未复核"
       ],
       "nextSmoke": [
@@ -23,7 +25,7 @@
         "确认 CLI 可见并运行 version --json 与 capabilities --json",
         "完成 inspect 和预览；如需验证草稿能力，先取得用户授权"
       ],
-      "evidenceNote": "当前记录用于安排安装验证；尚未执行真实兼容性 smoke。"
+      "evidenceNote": "官方文档说明可通过在线 URL 安装，也可手动上传 SKILL.zip；md2wechat 尚未在千问办公中安装或执行真实兼容性验证。"
     },
     {
       "id": "dumate",
@@ -31,14 +33,16 @@
       "vendor": "百度",
       "officialUrl": "https://www.dumate.cn/",
       "evidenceUrls": [
-        "https://www.dumate.cn/"
+        "https://www.dumate.cn/",
+        "https://cloud.baidu.com/doc/Dumate/s/5mmydgic3",
+        "https://cloud.baidu.com/doc/Dumate/s/0mqtgnlbk"
       ],
       "md2wechatStatus": "install-ready",
       "publiclySupported": false,
       "reviewedAt": "2026-09-06",
       "expiresAfterDays": 30,
       "invalidationConditions": [
-        "官方入口或安装机制发生变化",
+        "官方入口、URL 导入或 .zip/.md 上传机制发生变化",
         "超过 30 天未复核"
       ],
       "nextSmoke": [
@@ -46,7 +50,7 @@
         "确认 CLI 可见并运行 version --json 与 capabilities --json",
         "完成 inspect 和预览；如需验证草稿能力，先取得用户授权"
       ],
-      "evidenceNote": "当前记录用于安排安装验证；尚未执行真实兼容性 smoke。"
+      "evidenceNote": "官方文档说明可通过 URL 导入，也可上传 .zip 或 .md；md2wechat 尚未在 DuMate 中安装或执行真实兼容性验证。"
     },
     {
       "id": "workbuddy",
