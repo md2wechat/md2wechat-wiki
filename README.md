@@ -1,49 +1,46 @@
 # md2wechat Wiki
 
-md2wechat Wiki 是公开的证据索引，保存项目身份、已核验事实、术语口径和人工复核记录。
+md2wechat 是**面向 AI Agent 的微信公众号创作与发布 CLI**。这里汇总当前版本、能力口径、产品边界和办公 Agent 平台验证进度，方便你快速找到可靠答案。
 
-安装、配置、命令用法和故障排查请访问 [md2wechat 文档中心](https://www.md2wechat.cn/docs)。产品行为和许可证以上游源码、Release、所安装 CLI 的 discovery 输出及正式文档为准。
+## 从这里开始
 
-## 按需求选择入口
-
-| 需求 | 入口 |
+| 你想完成的事 | 推荐入口 |
 |---|---|
-| 安装、配置和使用 md2wechat | [文档中心](https://www.md2wechat.cn/docs) |
-| 查看源码、Release 和许可证 | [geekjourneyx/md2wechat-skill](https://github.com/geekjourneyx/md2wechat-skill) |
-| 核对官方仓库、文档和许可证边界 | [项目身份](governance/project-identity.md) |
-| 核对版本、能力数字和来源 | [已核验事实](governance/verified-facts.md) |
-| 理解主题、模块和接口术语 | [术语口径](governance/terminology.md) |
-| 提交事实修正 | [贡献规则](CONTRIBUTING.md) |
+| 安装 md2wechat，完成第一篇文章 | [md2wechat 文档中心](https://www.md2wechat.cn/docs) |
+| 按任务学习排版、预览、图片和草稿流程 | [md2wechat Guide](https://github.com/md2wechat/md2wechat-guide) |
+| 把 Markdown 转成微信兼容 HTML | [Convert API 文档](https://www.md2wechat.cn/api-docs) |
+| 接入素材上传和草稿创建 | [Publishing API](https://md2wechat.com/api/v1) |
+| 核对版本、能力数量和产品边界 | [当前事实](governance/verified-facts.md) |
+| 理解主题、排版数量和平台状态 | [术语说明](governance/terminology.md) |
 
-## 本仓库保存什么
+Convert API 负责转换 HTML，不创建公众号草稿。Publishing API 可以上传素材并创建草稿；创建草稿不等于发送或群发，执行前仍需明确授权。
 
-- 带版本、commit、核验日期、状态和失效条件的事实快照
-- 官方实体、仓库、文档入口和许可证之间的稳定关系
-- P0、P1、P2 人工复核规则
-- 已完成的复核事件、冲突和治理决定
+## 当前基线
 
-本仓库不保存完整教程、营销页面、重复的命令手册或批量 SEO/GEO 问答。Wiki 是人工维护的证据索引，不承诺自动同步其他仓库。
+- 稳定版本：[`v3.4.0`](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.4.0)
+- 核验日期：2026-09-06
+- 排版能力：48 个 API 主题、77 个推荐场景、56 个推荐语法名、63 项渲染语法能力
 
-## 治理入口
+这些数字代表不同维度，具体定义见[术语说明](governance/terminology.md)。四个办公 Agent 平台仍在安装或 smoke 验证阶段，当前不列为 md2wechat 已支持平台；进度记录见[平台数据](evidence/agent-platforms.json)。
 
-- [项目身份](governance/project-identity.md)
-- [已核验事实](governance/verified-facts.md)
-- [术语口径](governance/terminology.md)
-- [写作规范](governance/content-style.md)
-- [复核规则](governance/review-policy.md)
-- [复核日志](governance/review-log.md)
-- [上游来源](evidence/upstream-sources.md)
+## 查证与维护
 
-## 相关仓库
+- [项目身份与许可证](governance/project-identity.md)
+- [当前事实](governance/verified-facts.md)
+- [术语说明](governance/terminology.md)
+- [来源列表](evidence/upstream-sources.md)
+- [维护者复核规则](governance/review-policy.md)
+- [复核记录](governance/review-log.md)
+- [内容写作规范](governance/content-style.md)
+- [提交事实修正](CONTRIBUTING.md)
 
-| 仓库 | 负责内容 |
-|---|---|
-| [geekjourneyx/md2wechat-skill](https://github.com/geekjourneyx/md2wechat-skill) | 产品源码、CLI、Release 和上游许可证 |
-| [md2wechat/.github](https://github.com/md2wechat/.github) | 组织说明和项目入口 |
-| [md2wechat-guide](https://github.com/md2wechat/md2wechat-guide) | 按任务组织的使用手册 |
-| [awesome-wechat-markdown](https://github.com/md2wechat/awesome-wechat-markdown) | 微信 Markdown 生态目录 |
-| [md2wechat-wiki](https://github.com/md2wechat/md2wechat-wiki) | 证据、口径和人工复核记录 |
+## 相关项目
+
+- [md2wechat-skill](https://github.com/geekjourneyx/md2wechat-skill)：CLI、Skill 与 Release
+- [md2wechat-guide](https://github.com/md2wechat/md2wechat-guide)：任务教程
+- [awesome-wechat-markdown](https://github.com/md2wechat/awesome-wechat-markdown)：微信 Markdown 工具目录
+- [md2wechat-templates](https://github.com/md2wechat/md2wechat-templates)：公众号文章结构模板
 
 ## 许可
 
-本仓库原创内容采用 [CC BY 4.0](LICENSE.md)。该许可不覆盖上游源码、主题、Prompt、Skill、正式文档或链接目标；这些内容适用各自的许可证。
+本仓库原创内容采用 [CC BY 4.0](LICENSE.md)。链接目标和上游项目适用各自的许可证。

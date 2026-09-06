@@ -1,23 +1,16 @@
-# 复核日志
+# 复核记录
 
-## 2026-07-14
+## 2026-09-06：v3.4.0 与办公 Agent 平台
 
-- 上游 CLI：`geekjourneyx/md2wechat-skill@f9af7a9110b2b472c8fc3fd9a3103863f6bf3862`，tag `v3.1.0`
-- 站点文档：`wechat-markdown-editor@5eeb69cb3ed18042f34eb67f10faf9b8573c1f72`
-- 运行检查：先用 `version --json` 确认 v3.1.0，再执行 `capabilities --json`、`themes list --json`、`layout list --json`、`providers list --json`、`prompts list --json`
-- 组织首页：改为任务入口，补充贡献与支持路径，提交 `d9cc052`
-- Guide：按 v3.1 工作流重写安装、发现、排版、配图、API、FAQ 和迁移说明，提交 `4bd189c`；按纯文档仓库要求移除自动化文件，提交 `14c5f67`
-- Awesome List：移除 Star 和主观排名，新增许可证、最近活动、使用边界、待复核状态和关系披露，提交 `0d66a4a`
-- Wiki：建立首批事实登记；事实载体按纯文档要求改为 Markdown
-- 文风复核：四仓删除报告腔、自言自语式解释和自家项目导流；修正缺少证据的比较；硬规则扫描无命中
-- 链接检查：组织首页与 Guide 的公开入口均可访问；Awesome List 共检查 25 个公开链接，均可访问
-- 结果：四仓公开口径已同步到同一核验基线
+- **范围**：稳定版本、产品接口、排版数量、v3.2.0 至 v3.4.0 变化、四个办公 Agent 平台。
+- **来源**：v3.4.0 Release、tag commit `07fdea284e71ddaf5c6b5311238d7e9c2df3b8af`、该 commit 的 CHANGELOG / README / Discovery 文档与源码、产品路由合同、四个平台官方入口。
+- **变化**：当前基线从 v3.1.0 更新为 v3.4.0；排版口径更新为 48 个 API 主题、77 个推荐场景、56 个推荐语法名、63 项渲染语法能力；新增平台状态数据和 30 天复核投影。
+- **验证**：检查 Release 与 tag 指向；核对 immutable source 中的版本和数量；运行平台数据测试及验证脚本。未运行四个平台的真实宿主 smoke，也未验证远程草稿闭环。
+- **结果**：千问办公、DuMate 为 `install-ready`；WorkBuddy、豆包工作为 `smoke-pending`；四者均为 `publiclySupported=false`。
 
-### Wiki 证据索引复核
+## 2026-07-14：v3.1.0（历史）
 
-- 明确 Wiki 是人工维护的证据索引，不是正式教程、SEO/GEO 落地页或自动控制平面
-- 将正式使用文档入口统一为 `https://www.md2wechat.cn/docs`
-- 新增官方实体、上游 Source Available 和 Wiki CC BY 4.0 的许可证边界
-- 为易变事实补充状态和失效条件
-- 增加贡献、安全和隐私规则，禁止真实凭证、本机绝对路径和未经整理的内部实施记录
-- 保持纯 Markdown，不引入 registry、validator 或 CI
+- **范围**：v3.1.0 的项目身份、安装入口、命令、主题与排版、Provider 和提示词。
+- **来源**：`geekjourneyx/md2wechat-skill@f9af7a9110b2b472c8fc3fd9a3103863f6bf3862`、当时的站点文档和许可证。
+- **验证**：当时记录运行了 `version --json`、`capabilities --json`、`themes list --json`、`layout list --json`、`providers list --json` 和 `prompts list --json`。
+- **结果**：作为旧版本复核记录保留；当前内容以 2026-09-06 的 v3.4.0 基线为准。
