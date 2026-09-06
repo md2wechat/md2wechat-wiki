@@ -5,8 +5,10 @@ const apiRoot = "https://api.github.com"
 const urls = {
   runtime: `${apiRoot}/repos/geekjourneyx/md2wechat-skill/contents/VERSION?ref=v3.4.0`,
   products: `${apiRoot}/repos/md2wechat/.github/contents/facts/product-routes.json`,
-  release: `${apiRoot}/repos/geekjourneyx/md2wechat-skill/releases/latest`
+  release: `${apiRoot}/repos/geekjourneyx/md2wechat-skill/releases/latest`,
+  tagRef: `${apiRoot}/repos/geekjourneyx/md2wechat-skill/git/ref/tags/v3.4.0`
 }
+const expectedTagCommit = "07fdea284e71ddaf5c6b5311238d7e9c2df3b8af"
 
 async function fetchJson(fetchImpl, url, token) {
   const headers = {
@@ -20,13 +22,40 @@ async function fetchJson(fetchImpl, url, token) {
   return response.json()
 }
 
+async function resolveRuntimeTagCommit(fetchImpl, token) {
+  let target = (await fetchJson(fetchImpl, urls.tagRef, token)).object
+  const visited = new Set()
+
+  for (let depth = 0; depth < 8; depth += 1) {
+    if (!target || !/^[0-9a-f]{40}$/.test(target.sha || "")) {
+      throw new Error("v3.4.0 tag contains an invalid Git object")
+    }
+    if (target.type === "commit") return target.sha
+    if (target.type !== "tag") {
+      throw new Error(`v3.4.0 tag points to unsupported Git object type: ${target.type}`)
+    }
+    if (visited.has(target.sha)) throw new Error("v3.4.0 tag contains a cycle")
+    visited.add(target.sha)
+
+    const tag = await fetchJson(
+      fetchImpl,
+      `${apiRoot}/repos/geekjourneyx/md2wechat-skill/git/tags/${target.sha}`,
+      token
+    )
+    target = tag.object
+  }
+
+  throw new Error("v3.4.0 tag nesting exceeds the safe resolution limit")
+}
+
 export async function checkUpstreamDrift(lock, fetchImpl = globalThis.fetch, token = "") {
   if (typeof fetchImpl !== "function") throw new TypeError("fetch implementation is required")
 
-  const [runtime, products, release] = await Promise.all([
+  const [runtime, products, release, tagCommit] = await Promise.all([
     fetchJson(fetchImpl, urls.runtime, token),
     fetchJson(fetchImpl, urls.products, token),
-    fetchJson(fetchImpl, urls.release, token)
+    fetchJson(fetchImpl, urls.release, token),
+    resolveRuntimeTagCommit(fetchImpl, token)
   ])
   const runtimeVersion = Buffer.from(
     String(runtime.content || "").replace(/\s/g, ""),
@@ -49,6 +78,13 @@ export async function checkUpstreamDrift(lock, fetchImpl = globalThis.fetch, tok
       source: "latest-release",
       expected: lock.sources.runtime.schemaVersion,
       actual: release.tag_name
+    })
+  }
+  if (tagCommit !== expectedTagCommit) {
+    drift.push({
+      source: "runtime-tag-commit",
+      expected: expectedTagCommit,
+      actual: tagCommit
     })
   }
 

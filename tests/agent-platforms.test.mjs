@@ -122,21 +122,39 @@ test("current registry and ecosystem lock validate together", () => {
     []
   )
   assert.equal(gitBlobSha(registryText), lock.sources.platforms.sha)
-  assert.deepEqual(validateLock(lock, registryText), [])
+  assert.deepEqual(
+    validateLock(lock, registryText, new Date("2026-09-06T00:00:00Z")),
+    []
+  )
 })
 
 test("lock validation detects local platform content and pinned source drift", () => {
+  const now = new Date("2026-09-06T00:00:00Z")
   assert.match(
-    validateLock(lock, `${registryText} `).join("\n"),
+    validateLock(lock, `${registryText} `, now).join("\n"),
     /platforms\.sha mismatch/
   )
 
   const drifted = structuredClone(lock)
   drifted.sources.products.sha = "0".repeat(40)
   drifted.sources.runtime.extra = true
-  const errors = validateLock(drifted, registryText).join("\n")
+  const errors = validateLock(drifted, registryText, now).join("\n")
   assert.match(errors, /runtime source shape is invalid/)
   assert.match(errors, /products source does not match/)
+})
+
+test("lock validation rejects a review date later than the injected clock", () => {
+  const future = structuredClone(lock)
+  future.reviewedAt = "2027-09-06"
+
+  assert.match(
+    validateLock(
+      future,
+      registryText,
+      new Date("2026-09-06T00:00:00Z")
+    ).join("\n"),
+    /lock: reviewedAt must not be later than now/
+  )
 })
 
 test("upstream drift check is deterministic with injected fetch", async () => {
@@ -146,7 +164,16 @@ test("upstream drift check is deterministic with injected fetch", async () => {
       content: Buffer.from("3.4.0\n").toString("base64")
     }],
     ["product-routes.json", { sha: lock.sources.products.sha }],
-    ["releases/latest", { tag_name: "v3.4.0" }]
+    ["releases/latest", { tag_name: "v3.4.0" }],
+    ["git/ref/tags/v3.4.0", {
+      object: { type: "tag", sha: "a".repeat(40) }
+    }],
+    [`git/tags/${"a".repeat(40)}`, {
+      object: {
+        type: "commit",
+        sha: "07fdea284e71ddaf5c6b5311238d7e9c2df3b8af"
+      }
+    }]
   ])
   const fakeFetch = async url => {
     const entry = [...responses].find(([fragment]) => url.includes(fragment))
@@ -163,5 +190,37 @@ test("upstream drift check is deterministic with injected fetch", async () => {
     source: "latest-release",
     expected: "v3.4.0",
     actual: "v3.5.0"
+  }])
+})
+
+test("upstream drift detects a retargeted v3.4.0 tag", async () => {
+  const annotatedTagSha = "b".repeat(40)
+  const changedCommit = "f".repeat(40)
+  const responses = new Map([
+    ["contents/VERSION", {
+      sha: lock.sources.runtime.sha,
+      content: Buffer.from("3.4.0\n").toString("base64")
+    }],
+    ["product-routes.json", { sha: lock.sources.products.sha }],
+    ["releases/latest", { tag_name: "v3.4.0" }],
+    ["git/ref/tags/v3.4.0", {
+      object: { type: "tag", sha: annotatedTagSha }
+    }],
+    [`git/tags/${annotatedTagSha}`, {
+      object: { type: "commit", sha: changedCommit }
+    }]
+  ])
+  const fakeFetch = async url => {
+    const entry = [...responses].find(([fragment]) => url.includes(fragment))
+    assert.ok(entry, `unexpected URL: ${url}`)
+    return { ok: true, status: 200, json: async () => entry[1] }
+  }
+
+  const result = await checkUpstreamDrift(lock, fakeFetch)
+  assert.equal(result.ok, false)
+  assert.deepEqual(result.drift, [{
+    source: "runtime-tag-commit",
+    expected: "07fdea284e71ddaf5c6b5311238d7e9c2df3b8af",
+    actual: changedCommit
   }])
 })

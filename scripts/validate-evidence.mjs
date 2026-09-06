@@ -187,15 +187,19 @@ export function validateRegistry(registry, now = new Date()) {
   return errors
 }
 
-export function validateLock(lock, platformContent) {
+export function validateLock(lock, platformContent, now = new Date()) {
   const errors = []
+  const currentTime = now instanceof Date ? now.getTime() : Number.NaN
+  const lockReviewedAt = parseCalendarDate(lock?.reviewedAt)
 
   if (!hasExactKeys(lock, ["schemaVersion", "reviewedAt", "sources"])) {
     errors.push("lock: root shape is invalid")
   }
   if (lock?.schemaVersion !== 1) errors.push("lock: schemaVersion must equal 1")
-  if (!Number.isFinite(parseCalendarDate(lock?.reviewedAt))) {
+  if (!Number.isFinite(lockReviewedAt)) {
     errors.push("lock: reviewedAt must be a valid calendar date")
+  } else if (!Number.isFinite(currentTime) || lockReviewedAt > currentTime) {
+    errors.push("lock: reviewedAt must not be later than now")
   }
 
   const sources = lock?.sources
