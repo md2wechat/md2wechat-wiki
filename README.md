@@ -21,7 +21,7 @@ Convert API 负责转换 HTML，不创建公众号草稿。Publishing API 可以
 - 核验日期：2026-09-06
 - 排版能力：48 个 API 主题、77 个推荐场景、56 个推荐语法名、63 项渲染语法能力
 
-这些数字代表不同维度，具体定义见[术语说明](governance/terminology.md)。四个办公 Agent 平台仍在安装或 smoke 验证阶段，当前不列为 md2wechat 已支持平台；进度记录见[平台数据](evidence/agent-platforms.json)。
+这些数字代表不同维度，具体定义见[术语说明](governance/terminology.md)。四个办公 Agent 平台仍在安装验证阶段，完成真实兼容性验证后才会列入支持范围；当前进度见[平台数据](evidence/agent-platforms.json)。
 
 ## 查证与维护
 
