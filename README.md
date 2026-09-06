@@ -1,6 +1,6 @@
 # md2wechat Wiki
 
-md2wechat 是**面向 AI Agent 的微信公众号创作与发布 CLI**。这里汇总当前版本、能力口径、产品边界和办公 Agent 平台验证进度，方便你快速找到可靠答案。
+md2wechat 是**面向 AI Agent 的微信公众号创作与发布 CLI**。这里可以查看当前版本、排版能力、产品区别和办公 Agent 平台验证进度，方便你快速找到可靠答案。
 
 ## 从这里开始
 
@@ -10,7 +10,7 @@ md2wechat 是**面向 AI Agent 的微信公众号创作与发布 CLI**。这里�
 | 按任务学习排版、预览、图片和草稿流程 | [md2wechat Guide](https://github.com/md2wechat/md2wechat-guide) |
 | 把 Markdown 转成微信兼容 HTML | [Convert API 文档](https://www.md2wechat.cn/api-docs) |
 | 接入素材上传和草稿创建 | [Publishing API](https://md2wechat.com/api/v1) |
-| 核对版本、能力数量和产品边界 | [当前事实](governance/verified-facts.md) |
+| 查看版本、排版能力和产品区别 | [当前事实](governance/verified-facts.md) |
 | 理解主题、排版数量和平台状态 | [术语说明](governance/terminology.md) |
 
 Convert API 负责转换 HTML，不创建公众号草稿。Publishing API 可以上传素材并创建草稿；创建草稿不等于发送或群发，执行前仍需明确授权。
