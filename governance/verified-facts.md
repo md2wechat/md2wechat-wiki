@@ -1,6 +1,7 @@
 # 当前事实
 
-核验日期：2026-09-06  
+核验日期：2026-09-06
+
 上游基线：[`v3.4.0@07fdea284e71ddaf5c6b5311238d7e9c2df3b8af`](https://github.com/geekjourneyx/md2wechat-skill/tree/07fdea284e71ddaf5c6b5311238d7e9c2df3b8af)
 
 本页记录对使用和内容维护影响最大的事实。安装步骤和完整命令以 [md2wechat 文档中心](https://www.md2wechat.cn/docs)为准。
