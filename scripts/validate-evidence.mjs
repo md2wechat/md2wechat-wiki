@@ -62,6 +62,11 @@ function sameValue(actual, expected) {
   return Object.keys(expected).every(key => actual?.[key] === expected[key])
 }
 
+function hasExactKeys(value, keys) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false
+  return [...Object.keys(value)].sort().join("\0") === [...keys].sort().join("\0")
+}
+
 export function gitBlobSha(content) {
   const bytes = Buffer.isBuffer(content) ? content : Buffer.from(content, "utf8")
   const header = Buffer.from(`blob ${bytes.length}\0`, "utf8")
@@ -185,6 +190,9 @@ export function validateRegistry(registry, now = new Date()) {
 export function validateLock(lock, platformContent) {
   const errors = []
 
+  if (!hasExactKeys(lock, ["schemaVersion", "reviewedAt", "sources"])) {
+    errors.push("lock: root shape is invalid")
+  }
   if (lock?.schemaVersion !== 1) errors.push("lock: schemaVersion must equal 1")
   if (!Number.isFinite(parseCalendarDate(lock?.reviewedAt))) {
     errors.push("lock: reviewedAt must be a valid calendar date")
@@ -194,12 +202,18 @@ export function validateLock(lock, platformContent) {
   if (!sources || typeof sources !== "object" || Array.isArray(sources)) {
     return [...errors, "lock: sources must be an object"]
   }
+  if (!hasExactKeys(sources, ["runtime", "products", "platforms"])) {
+    errors.push("lock: sources shape is invalid")
+  }
 
   for (const name of ["runtime", "products", "platforms"]) {
     const source = sources[name]
     if (!source || typeof source !== "object" || Array.isArray(source)) {
       errors.push(`lock: missing ${name} source`)
       continue
+    }
+    if (!hasExactKeys(source, ["repository", "path", "sha", "schemaVersion"])) {
+      errors.push(`lock: ${name} source shape is invalid`)
     }
     if (!/^[^/]+\/[^/]+$/.test(source.repository || "")) {
       errors.push(`lock: ${name}.repository is invalid`)

@@ -133,10 +133,10 @@ test("lock validation detects local platform content and pinned source drift", (
 
   const drifted = structuredClone(lock)
   drifted.sources.products.sha = "0".repeat(40)
-  assert.match(
-    validateLock(drifted, registryText).join("\n"),
-    /products source does not match/
-  )
+  drifted.sources.runtime.extra = true
+  const errors = validateLock(drifted, registryText).join("\n")
+  assert.match(errors, /runtime source shape is invalid/)
+  assert.match(errors, /products source does not match/)
 })
 
 test("upstream drift check is deterministic with injected fetch", async () => {
