@@ -1,5 +1,12 @@
 # 复核记录
 
+## 2026-09-10：v3.5.0 与图片服务事实校准
+
+- **范围**：当前版本、版本锁、来源链接、图片服务清单；平台证据保持 2026-09-06 的独立核验日期与原状态。
+- **来源**：[v3.5.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.5.0)、commit `cbc8c600ed1f9cccbc29a33576f657c07d39ba9a` 的 VERSION、README、LICENSE、Layout、Discovery 和 IMAGE_PROVISIONERS。
+- **变化**：稳定版本更新为 v3.5.0；图片服务为 8 个 canonical provider，Atlas Cloud 新增，TuZi 为既有服务；48 / 77 / 56 / 63 口径不变。
+- **边界**：不执行图片生成、上传、草稿或四宿主测试；历史复核记录保留。官方 Linux 二进制 SHA-256 与 Release 匹配；`version`、`capabilities`、`skills read`、`providers list/show`、`themes list`、`layout list` 只读查询成功；12 项测试、证据校验和真实上游漂移检查通过。
+
 ## 2026-09-06：v3.4.0 与办公 Agent 平台
 
 - **范围**：稳定版本、产品接口、排版数量、v3.2.0 至 v3.4.0 变化、四个办公 Agent 平台。
