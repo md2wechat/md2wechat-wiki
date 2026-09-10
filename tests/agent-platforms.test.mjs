@@ -53,7 +53,7 @@ test("only verified or compatible may be advertised as supported", () => {
   const invalid = structuredClone(registry)
   invalid.platforms[0].publiclySupported = true
   assert.match(
-    validateRegistry(invalid, new Date("2026-09-06T00:00:00Z")).join("\n"),
+    validateRegistry(invalid, new Date("2026-09-10T00:00:00Z")).join("\n"),
     /only verified or compatible/
   )
 })
@@ -89,10 +89,10 @@ test("rejects nonexistent calendar dates", () => {
   invalid.reviewedAt = "2026-02-30"
   invalid.platforms[0].reviewedAt = "2026-02-30"
 
-  const errors = validateRegistry(invalid, new Date("2026-09-06T00:00:00Z"))
+  const errors = validateRegistry(invalid, new Date("2026-09-10T00:00:00Z"))
   assert.ok(errors.some(error => /reviewedAt must be a valid calendar date/.test(error)))
   assert.throws(
-    () => evaluatePlatform(invalid.platforms[0], new Date("2026-09-06T00:00:00Z")),
+    () => evaluatePlatform(invalid.platforms[0], new Date("2026-09-10T00:00:00Z")),
     /valid UTC dates/
   )
 })
@@ -107,29 +107,29 @@ test("rejects platform review dates later than the injected clock", () => {
   }
 
   assert.match(
-    validateRegistry(invalid, new Date("2026-09-06T00:00:00Z")).join("\n"),
+    validateRegistry(invalid, new Date("2026-09-10T00:00:00Z")).join("\n"),
     /must not be later than now/
   )
   assert.throws(
-    () => evaluatePlatform(invalid.platforms[0], new Date("2026-09-06T00:00:00Z")),
+    () => evaluatePlatform(invalid.platforms[0], new Date("2026-09-10T00:00:00Z")),
     /must not be later than now/
   )
 })
 
 test("current registry and ecosystem lock validate together", () => {
   assert.deepEqual(
-    validateRegistry(registry, new Date("2026-09-06T00:00:00Z")),
+    validateRegistry(registry, new Date("2026-09-10T00:00:00Z")),
     []
   )
   assert.equal(gitBlobSha(registryText), lock.sources.platforms.sha)
   assert.deepEqual(
-    validateLock(lock, registryText, new Date("2026-09-06T00:00:00Z")),
+    validateLock(lock, registryText, new Date("2026-09-10T00:00:00Z")),
     []
   )
 })
 
 test("lock validation detects local platform content and pinned source drift", () => {
-  const now = new Date("2026-09-06T00:00:00Z")
+  const now = new Date("2026-09-10T00:00:00Z")
   assert.match(
     validateLock(lock, `${registryText} `, now).join("\n"),
     /platforms\.sha mismatch/
@@ -151,7 +151,7 @@ test("lock validation rejects a review date later than the injected clock", () =
     validateLock(
       future,
       registryText,
-      new Date("2026-09-06T00:00:00Z")
+      new Date("2026-09-10T00:00:00Z")
     ).join("\n"),
     /lock: reviewedAt must not be later than now/
   )
@@ -161,17 +161,17 @@ test("upstream drift check is deterministic with injected fetch", async () => {
   const responses = new Map([
     ["contents/VERSION", {
       sha: lock.sources.runtime.sha,
-      content: Buffer.from("3.4.0\n").toString("base64")
+      content: Buffer.from("3.5.0\n").toString("base64")
     }],
     ["product-routes.json", { sha: lock.sources.products.sha }],
-    ["releases/latest", { tag_name: "v3.4.0" }],
-    ["git/ref/tags/v3.4.0", {
+    ["releases/latest", { tag_name: "v3.5.0" }],
+    ["git/ref/tags/v3.5.0", {
       object: { type: "tag", sha: "a".repeat(40) }
     }],
     [`git/tags/${"a".repeat(40)}`, {
       object: {
         type: "commit",
-        sha: "07fdea284e71ddaf5c6b5311238d7e9c2df3b8af"
+        sha: "cbc8c600ed1f9cccbc29a33576f657c07d39ba9a"
       }
     }]
   ])
@@ -183,27 +183,27 @@ test("upstream drift check is deterministic with injected fetch", async () => {
 
   assert.deepEqual(await checkUpstreamDrift(lock, fakeFetch), { ok: true, drift: [] })
 
-  responses.set("releases/latest", { tag_name: "v3.5.0" })
+  responses.set("releases/latest", { tag_name: "v3.6.0" })
   const result = await checkUpstreamDrift(lock, fakeFetch)
   assert.equal(result.ok, false)
   assert.deepEqual(result.drift, [{
     source: "latest-release",
-    expected: "v3.4.0",
-    actual: "v3.5.0"
+    expected: "v3.5.0",
+    actual: "v3.6.0"
   }])
 })
 
-test("upstream drift detects a retargeted v3.4.0 tag", async () => {
+test("upstream drift detects a retargeted v3.5.0 tag", async () => {
   const annotatedTagSha = "b".repeat(40)
   const changedCommit = "f".repeat(40)
   const responses = new Map([
     ["contents/VERSION", {
       sha: lock.sources.runtime.sha,
-      content: Buffer.from("3.4.0\n").toString("base64")
+      content: Buffer.from("3.5.0\n").toString("base64")
     }],
     ["product-routes.json", { sha: lock.sources.products.sha }],
-    ["releases/latest", { tag_name: "v3.4.0" }],
-    ["git/ref/tags/v3.4.0", {
+    ["releases/latest", { tag_name: "v3.5.0" }],
+    ["git/ref/tags/v3.5.0", {
       object: { type: "tag", sha: annotatedTagSha }
     }],
     [`git/tags/${annotatedTagSha}`, {
@@ -220,7 +220,7 @@ test("upstream drift detects a retargeted v3.4.0 tag", async () => {
   assert.equal(result.ok, false)
   assert.deepEqual(result.drift, [{
     source: "runtime-tag-commit",
-    expected: "07fdea284e71ddaf5c6b5311238d7e9c2df3b8af",
+    expected: "cbc8c600ed1f9cccbc29a33576f657c07d39ba9a",
     actual: changedCommit
   }])
 })

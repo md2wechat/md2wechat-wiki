@@ -1,6 +1,6 @@
 # 项目身份与许可证
 
-核验日期：2026-09-06
+核验日期：2026-09-10
 
 ## 官方入口
 
@@ -18,7 +18,7 @@ Convert API 不创建公众号草稿。Publishing API 包含远程写操作；�
 
 ## 许可证边界
 
-- 上游 `geekjourneyx/md2wechat-skill` 适用 [md2wechat Source Available License@v3.4.0](https://github.com/geekjourneyx/md2wechat-skill/blob/07fdea284e71ddaf5c6b5311238d7e9c2df3b8af/LICENSE)。具体使用、修改、分发和商业授权以许可证原文为准。
+- 上游 `geekjourneyx/md2wechat-skill` 适用 [md2wechat Source Available License@v3.5.0](https://github.com/geekjourneyx/md2wechat-skill/blob/cbc8c600ed1f9cccbc29a33576f657c07d39ba9a/LICENSE)。具体使用、修改、分发和商业授权以许可证原文为准。
 - 本 Wiki 的原创内容采用 [CC BY 4.0](../LICENSE.md)。
 - Wiki 的许可不改变上游源码、主题、Prompt、Skill、正式文档、图片或外部链接内容的许可证。
 
