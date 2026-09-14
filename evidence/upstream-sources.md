@@ -2,17 +2,17 @@
 
 这里列出当前事实对应的原始入口。需要完整安装或操作步骤时，请使用 [md2wechat 文档中心](https://www.md2wechat.cn/docs)。
 
-## md2wechat v3.5.0
+## md2wechat v3.6.0
 
 - 源码：[geekjourneyx/md2wechat-skill](https://github.com/geekjourneyx/md2wechat-skill)
-- 稳定版本：[v3.5.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.5.0)
-- 精确 commit：[`cbc8c600ed1f9cccbc29a33576f657c07d39ba9a`](https://github.com/geekjourneyx/md2wechat-skill/tree/cbc8c600ed1f9cccbc29a33576f657c07d39ba9a)
-- 版本文件：[VERSION@v3.5.0](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.5.0/VERSION)
-- 版本变化：[CHANGELOG@v3.5.0](https://github.com/geekjourneyx/md2wechat-skill/blob/cbc8c600ed1f9cccbc29a33576f657c07d39ba9a/CHANGELOG.md)
-- 排版定义：[LAYOUT.md](https://github.com/geekjourneyx/md2wechat-skill/blob/cbc8c600ed1f9cccbc29a33576f657c07d39ba9a/docs/LAYOUT.md) · [DISCOVERY.md](https://github.com/geekjourneyx/md2wechat-skill/blob/cbc8c600ed1f9cccbc29a33576f657c07d39ba9a/docs/DISCOVERY.md) · [discovery.go](https://github.com/geekjourneyx/md2wechat-skill/blob/cbc8c600ed1f9cccbc29a33576f657c07d39ba9a/cmd/md2wechat/discovery.go)
-- 上游许可证：[LICENSE@v3.5.0](https://github.com/geekjourneyx/md2wechat-skill/blob/cbc8c600ed1f9cccbc29a33576f657c07d39ba9a/LICENSE)
+- 稳定版本：[v3.6.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.6.0)
+- 精确 commit：[`9cb3318f84ff980d1cac41ab0fafbcec525ef6dd`](https://github.com/geekjourneyx/md2wechat-skill/tree/9cb3318f84ff980d1cac41ab0fafbcec525ef6dd)
+- 版本文件：[VERSION@v3.6.0](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.6.0/VERSION)
+- 版本变化：[CHANGELOG@v3.6.0](https://github.com/geekjourneyx/md2wechat-skill/blob/9cb3318f84ff980d1cac41ab0fafbcec525ef6dd/CHANGELOG.md)
+- 排版定义：[LAYOUT.md](https://github.com/geekjourneyx/md2wechat-skill/blob/9cb3318f84ff980d1cac41ab0fafbcec525ef6dd/docs/LAYOUT.md) · [DISCOVERY.md](https://github.com/geekjourneyx/md2wechat-skill/blob/9cb3318f84ff980d1cac41ab0fafbcec525ef6dd/docs/DISCOVERY.md) · [discovery.go](https://github.com/geekjourneyx/md2wechat-skill/blob/9cb3318f84ff980d1cac41ab0fafbcec525ef6dd/cmd/md2wechat/discovery.go)
+- 上游许可证：[LICENSE@v3.6.0](https://github.com/geekjourneyx/md2wechat-skill/blob/9cb3318f84ff980d1cac41ab0fafbcec525ef6dd/LICENSE)
 
-- 图片服务：[IMAGE_PROVISIONERS.md](https://github.com/geekjourneyx/md2wechat-skill/blob/cbc8c600ed1f9cccbc29a33576f657c07d39ba9a/docs/IMAGE_PROVISIONERS.md)（8 个 canonical provider）
+- 图片服务：[IMAGE_PROVISIONERS.md](https://github.com/geekjourneyx/md2wechat-skill/blob/9cb3318f84ff980d1cac41ab0fafbcec525ef6dd/docs/IMAGE_PROVISIONERS.md)（8 个 canonical provider）
 
 ## 产品和文档
 

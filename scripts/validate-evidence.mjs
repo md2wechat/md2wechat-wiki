@@ -18,12 +18,13 @@ const officialHosts = new Map([
   ["workbuddy", new Set(["open.workbuddy.cn"])],
   ["doubao-work", new Set(["www.doubao.com"])]
 ])
+const runtimeFacts = JSON.parse(readFileSync(new URL('../evidence/runtime-facts.json', import.meta.url), 'utf8'))
 const expectedSources = {
   runtime: {
     repository: "geekjourneyx/md2wechat-skill",
     path: "VERSION",
-    sha: "1545d966571dc86b54c98f888a0e6451501f8c81",
-    schemaVersion: "v3.5.0"
+    sha: runtimeFacts.runtime.versionBlobSha,
+    schemaVersion: runtimeFacts.runtime.version
   },
   products: {
     repository: "md2wechat/.github",
@@ -236,7 +237,7 @@ export function validateLock(lock, platformContent, now = new Date()) {
 
   for (const name of ["runtime", "products"]) {
     if (!sameValue(sources[name], expectedSources[name])) {
-      errors.push(`lock: ${name} source does not match the v3.5.0 baseline`)
+      errors.push(`lock: ${name} source does not match the v3.6.0 baseline`)
     }
   }
 
