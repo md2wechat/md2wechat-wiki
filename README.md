@@ -6,6 +6,7 @@ md2wechat 是**面向 AI Agent 的微信公众号创作与发布 CLI**。这里�
 
 | 你想完成的事 | 推荐入口 |
 |---|---|
+| 让办公 Agent 安装 md2wechat 并开始排版 | [复制安装与排版提示词](https://github.com/md2wechat/md2wechat-guide/blob/main/09-agent-skill.md) |
 | 安装 md2wechat，完成第一篇文章 | [md2wechat 文档中心](https://www.md2wechat.cn/docs) |
 | 按任务学习排版、预览、图片和草稿流程 | [md2wechat Guide](https://github.com/md2wechat/md2wechat-guide) |
 | 把 Markdown 转成微信兼容 HTML | [Convert API 文档](https://www.md2wechat.cn/api-docs) |
@@ -22,7 +23,7 @@ Convert API 负责转换 HTML，不创建公众号草稿。Publishing API 可以
 - 核验日期：2026-09-14
 - 排版能力：48 个 API 主题、77 个推荐场景、56 个推荐语法名、63 项渲染语法能力
 
-这些数字代表不同维度，具体定义见[术语说明](governance/terminology.md)。四个办公 Agent 平台仍在安装验证阶段，完成真实兼容性验证后才会列入支持范围；当前进度见[平台数据](evidence/agent-platforms.json)。
+这些数字代表不同维度，具体定义见[术语说明](governance/terminology.md)。办公 Agent 通过本机 CLI 使用 md2wechat；操作步骤见上方提示词。各平台已留档的实测范围另见[平台数据](evidence/agent-platforms.json)，这些记录不代替你当前环境的执行结果。
 
 ## 查证与维护
 
@@ -31,7 +32,6 @@ Convert API 负责转换 HTML，不创建公众号草稿。Publishing API 可以
 - [术语说明](governance/terminology.md)
 - [来源列表](evidence/upstream-sources.md)
 - [维护者复核规则](governance/review-policy.md)
-- [运行时事实与漂移追踪](governance/runtime-facts-maintenance.md)
 - [复核记录](governance/review-log.md)
 - [内容写作规范](governance/content-style.md)
 - [提交事实修正](CONTRIBUTING.md)

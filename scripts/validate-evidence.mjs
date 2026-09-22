@@ -18,13 +18,12 @@ const officialHosts = new Map([
   ["workbuddy", new Set(["open.workbuddy.cn"])],
   ["doubao-work", new Set(["www.doubao.com"])]
 ])
-const runtimeFacts = JSON.parse(readFileSync(new URL('../evidence/runtime-facts.json', import.meta.url), 'utf8'))
 const expectedSources = {
   runtime: {
     repository: "geekjourneyx/md2wechat-skill",
     path: "VERSION",
-    sha: runtimeFacts.runtime.versionBlobSha,
-    schemaVersion: runtimeFacts.runtime.version
+    sha: "40c341bdcdbe83bbbda981fa85368c0e1a63d0c7",
+    schemaVersion: "v3.6.0"
   },
   products: {
     repository: "md2wechat/.github",
