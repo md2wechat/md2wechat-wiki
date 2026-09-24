@@ -2,7 +2,16 @@
 
 这里列出当前事实对应的原始入口。需要完整安装或操作步骤时，请使用 [md2wechat 文档中心](https://www.md2wechat.cn/docs)。
 
-## md2wechat v3.6.0
+## md2wechat v3.7.0（当前）
+
+- 稳定版本：[v3.7.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.7.0) · [tag commit](https://github.com/geekjourneyx/md2wechat-skill/commit/5032b5336d4df6683a2862449b3078a242ba6b53)
+- 版本文件：[VERSION@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/VERSION) · [CHANGELOG@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/CHANGELOG.md)
+- 定向写作：[WRITING.md@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/docs/WRITING.md)
+- 多平台草稿：[SYNC.md@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/docs/SYNC.md) · [SMOKE.md@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/docs/SMOKE.md)
+- 排版与图片服务：[README](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/README.md) · [LAYOUT](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/docs/LAYOUT.md) · [DISCOVERY](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/docs/DISCOVERY.md) · [IMAGE_PROVISIONERS](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/docs/IMAGE_PROVISIONERS.md)
+- 上游许可证：[LICENSE@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/v3.7.0/LICENSE)
+
+## md2wechat v3.6.0（历史）
 
 - 源码：[geekjourneyx/md2wechat-skill](https://github.com/geekjourneyx/md2wechat-skill)
 - 稳定版本：[v3.6.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.6.0)

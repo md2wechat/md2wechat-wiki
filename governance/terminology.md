@@ -1,6 +1,6 @@
 # 术语说明
 
-当前数量以 md2wechat `v3.6.0`（commit `9cb3318f84ff980d1cac41ab0fafbcec525ef6dd`）为准。
+当前数量以 md2wechat `v3.7.0`（commit `5032b5336d4df6683a2862449b3078a242ba6b53`）的来源文档为准；本次未重新运行 CLI。
 
 ## 产品
 

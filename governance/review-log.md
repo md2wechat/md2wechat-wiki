@@ -1,5 +1,12 @@
 # 复核记录
 
+## 2026-09-24：v3.7.0 当前状态校准
+
+- 来源：[v3.7.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.7.0)、tag commit `5032b5336d4df6683a2862449b3078a242ba6b53`、该版本的 VERSION、CHANGELOG、WRITING、SYNC、SMOKE、排版和图片服务文档。
+- 当前版本与锁文件更新为 v3.7.0；写作指引和腾讯云未发布草稿的能力及限制已加入当前事实。48 / 77 / 56 / 63、8 个图片服务沿用核对后的文档口径。v3.6 的三平台实测记录仍保留历史版本。
+- 既有只读上游检查与测试跟随新版本更新。不新增事实文件、跨仓通知或自动 Issue；不改变四办公 Agent 的证据日期、状态及公开支持判断。
+- 本次只核对一手资料与既有校验，未重新运行 CLI、四宿主 smoke、外部图片服务或远端草稿。词条草稿未提交，搜索收录和引用未验证。
+
 ## 2026-09-22：v3.6.0 文档校准
 
 - 依据：上游 [v3.6.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.6.0)，tag 对应提交 `9cb3318f84ff980d1cac41ab0fafbcec525ef6dd`；核对版本化 README、SYNC 和 SMOKE。
