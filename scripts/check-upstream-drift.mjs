@@ -3,12 +3,12 @@ import { pathToFileURL } from "node:url"
 
 const apiRoot = "https://api.github.com"
 const urls = {
-  runtime: `${apiRoot}/repos/geekjourneyx/md2wechat-skill/contents/VERSION?ref=v3.6.0`,
+  runtime: `${apiRoot}/repos/geekjourneyx/md2wechat-skill/contents/VERSION?ref=v3.7.0`,
   products: `${apiRoot}/repos/md2wechat/.github/contents/facts/product-routes.json`,
   release: `${apiRoot}/repos/geekjourneyx/md2wechat-skill/releases/latest`,
-  tagRef: `${apiRoot}/repos/geekjourneyx/md2wechat-skill/git/ref/tags/v3.6.0`
+  tagRef: `${apiRoot}/repos/geekjourneyx/md2wechat-skill/git/ref/tags/v3.7.0`
 }
-const expectedTagCommit = "9cb3318f84ff980d1cac41ab0fafbcec525ef6dd"
+const expectedTagCommit = "5032b5336d4df6683a2862449b3078a242ba6b53"
 
 async function fetchJson(fetchImpl, url, token) {
   const headers = {
@@ -28,13 +28,13 @@ async function resolveRuntimeTagCommit(fetchImpl, token) {
 
   for (let depth = 0; depth < 8; depth += 1) {
     if (!target || !/^[0-9a-f]{40}$/.test(target.sha || "")) {
-      throw new Error("v3.6.0 tag contains an invalid Git object")
+      throw new Error("v3.7.0 tag contains an invalid Git object")
     }
     if (target.type === "commit") return target.sha
     if (target.type !== "tag") {
-      throw new Error(`v3.6.0 tag points to unsupported Git object type: ${target.type}`)
+      throw new Error(`v3.7.0 tag points to unsupported Git object type: ${target.type}`)
     }
-    if (visited.has(target.sha)) throw new Error("v3.6.0 tag contains a cycle")
+    if (visited.has(target.sha)) throw new Error("v3.7.0 tag contains a cycle")
     visited.add(target.sha)
 
     const tag = await fetchJson(
@@ -45,7 +45,7 @@ async function resolveRuntimeTagCommit(fetchImpl, token) {
     target = tag.object
   }
 
-  throw new Error("v3.6.0 tag nesting exceeds the safe resolution limit")
+  throw new Error("v3.7.0 tag nesting exceeds the safe resolution limit")
 }
 
 export async function checkUpstreamDrift(lock, fetchImpl = globalThis.fetch, token = "") {
