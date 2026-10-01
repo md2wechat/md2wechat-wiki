@@ -1,5 +1,11 @@
 # 复核记录
 
+## 2026-10-01：v3.8.0 高级排版校准
+
+- 来源：[v3.8.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.8.0)、tag commit `fce5fa3b4494fded0bdb942d50d17485281055d6`、版本化 CHANGELOG、LAYOUT、DISCOVERY、图片服务和许可证文件。
+- 当前版本与锁文件更新为 v3.8.0；排版口径更新为 48 / 83 / 59 / 65，记录 `cover-reveal`、`expand`、3 种刊头变体和 12 个品牌符号。
+- 微信内点击交互仍未验证；生产一致性证据没有 build ID，因此不外推为所有部署实例已升级。8 个图片服务、18 个模板及四办公 Agent 状态保持原值。
+
 ## 2026-09-24：v3.7.0 当前状态校准
 
 - 来源：[v3.7.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.7.0)、tag commit `5032b5336d4df6683a2862449b3078a242ba6b53`、该版本的 VERSION、CHANGELOG、WRITING、SYNC、SMOKE、排版和图片服务文档。
