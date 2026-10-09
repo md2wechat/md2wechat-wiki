@@ -1,8 +1,8 @@
 # 当前事实
 
-核验日期：2026-09-24
+核验日期：2026-10-01
 
-上游基线：[`v3.7.0@5032b5336d4df6683a2862449b3078a242ba6b53`](https://github.com/geekjourneyx/md2wechat-skill/tree/5032b5336d4df6683a2862449b3078a242ba6b53)
+上游基线：[`v3.8.0@fce5fa3b4494fded0bdb942d50d17485281055d6`](https://github.com/geekjourneyx/md2wechat-skill/tree/fce5fa3b4494fded0bdb942d50d17485281055d6)
 
 本页记录对使用和内容维护影响最大的事实。安装步骤和完整命令以 [md2wechat 文档中心](https://www.md2wechat.cn/docs)为准。
 
@@ -11,7 +11,7 @@
 | 项目 | 当前事实 | 来源 |
 |---|---|---|
 | md2wechat | 面向 AI Agent 的微信公众号创作与发布 CLI | [产品路由合同](https://github.com/md2wechat/.github/blob/main/facts/product-routes.json) |
-| 稳定版本 | `v3.7.0`，tag commit 为 `5032b5336d4df6683a2862449b3078a242ba6b53` | [Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.7.0) · [commit](https://github.com/geekjourneyx/md2wechat-skill/commit/5032b5336d4df6683a2862449b3078a242ba6b53) |
+| 稳定版本 | `v3.8.0`，tag commit 为 `fce5fa3b4494fded0bdb942d50d17485281055d6` | [Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.8.0) · [commit](https://github.com/geekjourneyx/md2wechat-skill/commit/fce5fa3b4494fded0bdb942d50d17485281055d6) |
 | Convert API | `POST https://www.md2wechat.cn/api/convert`，将 Markdown 转成微信兼容 HTML，不创建草稿 | [API 文档](https://www.md2wechat.cn/api-docs) |
 | Publishing API | `https://md2wechat.com/api/v1`，用于素材和草稿相关写操作 | [产品路由合同](https://github.com/md2wechat/.github/blob/main/facts/product-routes.json) |
 
@@ -19,24 +19,26 @@ Publishing API 创建草稿后，文章仍在公众号草稿箱中；这不等�
 
 ## 主题与高级排版
 
-| 维度 | v3.7.0 文档口径 | 含义 | 来源 |
+| 维度 | v3.8.0 文档口径 | 含义 | 来源 |
 |---|---:|---|---|
-| API 主题 | 48 | API 模式可选择的主题 | [README@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/5032b5336d4df6683a2862449b3078a242ba6b53/README.md) |
-| 推荐场景 | 77 | 内容用途到排版选择的场景映射 | [LAYOUT.md@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/5032b5336d4df6683a2862449b3078a242ba6b53/docs/LAYOUT.md) |
-| 推荐语法名 | 56 | `layout list --json` 默认给出的推荐语法对象 | [DISCOVERY.md@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/5032b5336d4df6683a2862449b3078a242ba6b53/docs/DISCOVERY.md) |
-| 渲染语法能力 | 63 | 56 个推荐语法名、3 个兼容模块和 4 个基础增强能力的合计 | [discovery.go@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/5032b5336d4df6683a2862449b3078a242ba6b53/cmd/md2wechat/discovery.go) |
+| API 主题 | 48 | API 模式可选择的主题 | [README@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/README.md) |
+| 推荐场景 | 83 | 内容用途到排版选择的场景映射 | [LAYOUT.md@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/docs/LAYOUT.md) |
+| 推荐语法名 | 59 | `layout list --json` 默认给出的推荐语法对象 | [DISCOVERY.md@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/docs/DISCOVERY.md) |
+| 渲染语法能力 | 65 | 59 个推荐语法名、2 个兼容模块和 4 个基础增强能力的合计 | [discovery.go@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/cmd/md2wechat/discovery.go) |
 
 四组数字不能互换，也不能统一称为“模块数量”。
 
+当前口径可简写为：48 个 API 主题、83 个推荐场景、59 个推荐语法名、65 项渲染语法能力。
+
 ## 图片生成服务
 
-v3.7.0 文档枚举 8 个 canonical provider：OpenAI（`openai`）、MiniMax（`minimax`）、Atlas Cloud（`atlascloud`）、TuZi（`tuzi`）、ModelScope（`modelscope`）、OpenRouter（`openrouter`）、Gemini（`gemini`）、Volcengine（`volcengine`）。别名不重复计数。
+v3.8.0 文档枚举 8 个 canonical provider：OpenAI（`openai`）、MiniMax（`minimax`）、Atlas Cloud（`atlascloud`）、TuZi（`tuzi`）、ModelScope（`modelscope`）、OpenRouter（`openrouter`）、Gemini（`gemini`）、Volcengine（`volcengine`）。别名不重复计数。
 
-Atlas Cloud 是 v3.5.0 新增；TuZi 是既有服务，不能把此前清单漏记写成新功能。Atlas Cloud 默认模型为 `openai/gpt-image-2/text-to-image`，默认尺寸为 `1024x1024`。来源：[图片服务文档](https://github.com/geekjourneyx/md2wechat-skill/blob/5032b5336d4df6683a2862449b3078a242ba6b53/docs/IMAGE_PROVISIONERS.md)。
+Atlas Cloud 是 v3.5.0 新增；TuZi 是既有服务，不能把此前清单漏记写成新功能。Atlas Cloud 默认模型为 `openai/gpt-image-2/text-to-image`，默认尺寸为 `1024x1024`。来源：[图片服务文档](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/docs/IMAGE_PROVISIONERS.md)。
 
-以上是 v3.7.0 版本化文档与发现接口的能力记录；本次未重新运行 CLI，不代表本轮调用了外部图片服务或完成四宿主实测。上游 Release 或来源变化时重新核验。
+以上是 v3.8.0 版本化文档与发现接口的能力记录；本次未重新运行 CLI，不代表本轮调用了外部图片服务或完成四宿主实测。上游 Release 或来源变化时重新核验。
 
-## v3.2.0 至 v3.7.0 变化
+## v3.2.0 至 v3.8.0 变化
 
 - `v3.2.0`：调整 Discovery 数据职责；API 预览只写转换器返回的 HTML，AI 预览返回 `PREVIEW_ACTION_REQUIRED`；草稿相关检查在远程写操作前完成。
 - `v3.3.0`：将高级排版口径校准为 77 / 56 / 63，并补充标题、结尾和 Agent 字段读取顺序。
@@ -44,8 +46,15 @@ Atlas Cloud 是 v3.5.0 新增；TuZi 是既有服务，不能把此前清单漏�
 - `v3.5.0`：新增 Atlas Cloud，支持 `atlascloud`、`atlas-cloud`、`atlas` 三个名称；排版口径保持 48 / 77 / 56 / 63。
 - `v3.6.0`：新增 `sync prepare` 与知乎、CSDN、头条未发布草稿流程，见下文。
 - `v3.7.0`：新增宿主 Agent 定向写作指引与腾讯云开发者社区未发布草稿步骤；具体边界见下文。
+- `v3.8.0`：新增 `cover-reveal`、`expand`、`hero` 的 `journal` / `seal` / `orbit` 变体和 12 个品牌符号；当前排版口径为 48 / 83 / 59 / 65。
 
-以上内容来自 [CHANGELOG@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/5032b5336d4df6683a2862449b3078a242ba6b53/CHANGELOG.md)。这里记录接口和发现字段，不作性能评价。
+以上内容来自 [CHANGELOG@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/CHANGELOG.md)。这里记录接口和发现字段，不作性能评价。
+
+## v3.8.0 高级排版边界
+
+`cover-reveal` 和 `expand` 提供渐进揭示、展开阅读的表达方式；`hero` 新增 `journal`、`seal`、`orbit` 三种变体，品牌符号共 12 个。官方发布证据记录了 93 个结构见证、9 个里程碑探针和 6 个主题的生产一致性检查通过；当次生产端点未公开 build ID，因此只能把结论绑定到目标地址与检查时间，不能外推为所有部署实例都已升级。
+
+转换结果仍是静态内容。微信内点击交互尚未验证；`svg_fallback=first-layer` 是交互候选的显式降级路径，严格模式保持静态输出。文章不能把关键信息只放在点击后内容里。来源：[发布实测记录 SMOKE.md@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/docs/SMOKE.md)、[v3.8.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.8.0)与[LAYOUT.md@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/docs/LAYOUT.md)。
 
 ## v3.6.0 多平台未发布草稿
 
@@ -65,15 +74,17 @@ Atlas Cloud 是 v3.5.0 新增；TuZi 是既有服务，不能把此前清单漏�
 
 | 平台 | 当前状态 | 下一步 |
 |---|---|---|
-| 千问办公 | `install-ready` | 在可用宿主中安装，再检查 CLI、版本、能力、预览和授权后的草稿流程 |
-| DuMate | `install-ready` | 在可用宿主中安装，再检查 CLI、版本、能力、预览和授权后的草稿流程 |
-| WorkBuddy | `smoke-pending` | 先确认技能接入方式，再执行相同 smoke |
-| 豆包工作 | `smoke-pending` | 先确认技能接入方式，再执行相同 smoke |
+| 千问办公 | `review-due` | 在可用宿主中安装，再检查 CLI、版本、能力、预览和授权后的草稿流程 |
+| DuMate | `review-due` | 在可用宿主中安装，再检查 CLI、版本、能力、预览和授权后的草稿流程 |
+| WorkBuddy | `review-due` | 先确认技能接入方式，再执行相同 smoke |
+| 豆包工作 | `review-due` | 先确认技能接入方式，再执行相同 smoke |
 
 四个平台当前均为 `publiclySupported=false`，不能写成 md2wechat 已支持平台。记录与复核日期见 [agent-platforms.json](../evidence/agent-platforms.json)。
 
+平台状态于 2026-10-09 按既有 30 天规则标记为 `review-due`；原核验日期 2026-09-06、证据和待办保持不变，本轮没有执行宿主实测。历史状态见[复核记录](review-log.md)。
+
 ## 许可证
 
-- 上游源码适用 [md2wechat Source Available License@v3.7.0](https://github.com/geekjourneyx/md2wechat-skill/blob/5032b5336d4df6683a2862449b3078a242ba6b53/LICENSE)。
+- 上游源码适用 [md2wechat Source Available License@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/LICENSE)。
 - Wiki 原创内容适用 [CC BY 4.0](../LICENSE.md)。
 - 更完整的实体和许可边界见[项目身份](project-identity.md)。

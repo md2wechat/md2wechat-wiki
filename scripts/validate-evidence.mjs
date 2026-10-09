@@ -22,8 +22,8 @@ const expectedSources = {
   runtime: {
     repository: "geekjourneyx/md2wechat-skill",
     path: "VERSION",
-    sha: "7c69a55dbb18555b0baec9712461a06b0667ae7b",
-    schemaVersion: "v3.7.0"
+    sha: "19811903a7f7584d7aa752ea29bbf9d74cf78b47",
+    schemaVersion: "v3.8.0"
   },
   products: {
     repository: "md2wechat/.github",
@@ -236,7 +236,7 @@ export function validateLock(lock, platformContent, now = new Date()) {
 
   for (const name of ["runtime", "products"]) {
     if (!sameValue(sources[name], expectedSources[name])) {
-      errors.push(`lock: ${name} source does not match the v3.7.0 baseline`)
+      errors.push(`lock: ${name} source does not match the v3.8.0 baseline`)
     }
   }
 
