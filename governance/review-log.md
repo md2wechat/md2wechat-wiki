@@ -1,5 +1,11 @@
 # 复核记录
 
+## 2026-10-09：独立验收与平台证据到期
+
+- 实时执行证据校验发现四个平台的 2026-09-06 记录超过 30 天期限；按既有规则统一标记 `review-due`、`publiclySupported=false`。
+- 原核验日期、证据、待办和以下历史记录不改；未重新执行宿主安装、预览或草稿实测，不续期、不提升支持状态。
+- 同步平台 blob 锁值，增加到期回归测试；v3.8.0 事实与微信交互限制保持不变。
+
 ## 2026-10-01：v3.8.0 高级排版校准
 
 - 来源：[v3.8.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.8.0)、tag commit `fce5fa3b4494fded0bdb942d50d17485281055d6`、版本化 CHANGELOG、LAYOUT、DISCOVERY、图片服务和许可证文件。

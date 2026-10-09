@@ -12,7 +12,7 @@
         "https://help.aliyun.com/zh/rpa/getting-started/develop-skills-for-qwenwork",
         "https://help.aliyun.com/zh/qwenwork/qwenwork-extensions"
       ],
-      "md2wechatStatus": "install-ready",
+      "md2wechatStatus": "review-due",
       "publiclySupported": false,
       "reviewedAt": "2026-09-06",
       "expiresAfterDays": 30,
@@ -37,7 +37,7 @@
         "https://cloud.baidu.com/doc/Dumate/s/5mmydgic3",
         "https://cloud.baidu.com/doc/Dumate/s/0mqtgnlbk"
       ],
-      "md2wechatStatus": "install-ready",
+      "md2wechatStatus": "review-due",
       "publiclySupported": false,
       "reviewedAt": "2026-09-06",
       "expiresAfterDays": 30,
@@ -60,7 +60,7 @@
       "evidenceUrls": [
         "https://open.workbuddy.cn/"
       ],
-      "md2wechatStatus": "smoke-pending",
+      "md2wechatStatus": "review-due",
       "publiclySupported": false,
       "reviewedAt": "2026-09-06",
       "expiresAfterDays": 30,
@@ -83,7 +83,7 @@
       "evidenceUrls": [
         "https://www.doubao.com/work"
       ],
-      "md2wechatStatus": "smoke-pending",
+      "md2wechatStatus": "review-due",
       "publiclySupported": false,
       "reviewedAt": "2026-09-06",
       "expiresAfterDays": 30,

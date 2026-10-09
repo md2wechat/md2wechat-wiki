@@ -54,7 +54,7 @@ Atlas Cloud 是 v3.5.0 新增；TuZi 是既有服务，不能把此前清单漏�
 
 `cover-reveal` 和 `expand` 提供渐进揭示、展开阅读的表达方式；`hero` 新增 `journal`、`seal`、`orbit` 三种变体，品牌符号共 12 个。官方发布证据记录了 93 个结构见证、9 个里程碑探针和 6 个主题的生产一致性检查通过；当次生产端点未公开 build ID，因此只能把结论绑定到目标地址与检查时间，不能外推为所有部署实例都已升级。
 
-转换结果仍是静态内容。微信内点击交互尚未验证；`svg_fallback=first-layer` 是交互候选的显式降级路径，严格模式保持静态输出。文章不能把关键信息只放在点击后内容里。来源：[v3.8.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.8.0)与[LAYOUT.md@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/docs/LAYOUT.md)。
+转换结果仍是静态内容。微信内点击交互尚未验证；`svg_fallback=first-layer` 是交互候选的显式降级路径，严格模式保持静态输出。文章不能把关键信息只放在点击后内容里。来源：[发布实测记录 SMOKE.md@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/docs/SMOKE.md)、[v3.8.0 Release](https://github.com/geekjourneyx/md2wechat-skill/releases/tag/v3.8.0)与[LAYOUT.md@v3.8.0](https://github.com/geekjourneyx/md2wechat-skill/blob/fce5fa3b4494fded0bdb942d50d17485281055d6/docs/LAYOUT.md)。
 
 ## v3.6.0 多平台未发布草稿
 
@@ -74,12 +74,14 @@ Atlas Cloud 是 v3.5.0 新增；TuZi 是既有服务，不能把此前清单漏�
 
 | 平台 | 当前状态 | 下一步 |
 |---|---|---|
-| 千问办公 | `install-ready` | 在可用宿主中安装，再检查 CLI、版本、能力、预览和授权后的草稿流程 |
-| DuMate | `install-ready` | 在可用宿主中安装，再检查 CLI、版本、能力、预览和授权后的草稿流程 |
-| WorkBuddy | `smoke-pending` | 先确认技能接入方式，再执行相同 smoke |
-| 豆包工作 | `smoke-pending` | 先确认技能接入方式，再执行相同 smoke |
+| 千问办公 | `review-due` | 在可用宿主中安装，再检查 CLI、版本、能力、预览和授权后的草稿流程 |
+| DuMate | `review-due` | 在可用宿主中安装，再检查 CLI、版本、能力、预览和授权后的草稿流程 |
+| WorkBuddy | `review-due` | 先确认技能接入方式，再执行相同 smoke |
+| 豆包工作 | `review-due` | 先确认技能接入方式，再执行相同 smoke |
 
 四个平台当前均为 `publiclySupported=false`，不能写成 md2wechat 已支持平台。记录与复核日期见 [agent-platforms.json](../evidence/agent-platforms.json)。
+
+平台状态于 2026-10-09 按既有 30 天规则标记为 `review-due`；原核验日期 2026-09-06、证据和待办保持不变，本轮没有执行宿主实测。历史状态见[复核记录](review-log.md)。
 
 ## 许可证
 

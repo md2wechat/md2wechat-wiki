@@ -36,12 +36,25 @@ test("records the agreed platform states without public support claims", () => {
   )
 
   assert.deepEqual(statusById, {
-    qwenwork: "install-ready",
-    dumate: "install-ready",
-    workbuddy: "smoke-pending",
-    "doubao-work": "smoke-pending"
+    qwenwork: "review-due",
+    dumate: "review-due",
+    workbuddy: "review-due",
+    "doubao-work": "review-due"
   })
   assert.ok(registry.platforms.every(platform => platform.publiclySupported === false))
+})
+
+test("expired evidence remains dated honestly and passes only as review-due", () => {
+  assert.equal(registry.reviewedAt, "2026-09-06")
+  for (const platform of registry.platforms) {
+    assert.equal(platform.reviewedAt, "2026-09-06")
+    assert.equal(platform.expiresAfterDays, 30)
+  }
+  const now = new Date("2026-10-09T00:00:00Z")
+  assert.deepEqual(validateRegistry(registry, now), [])
+  const stale = structuredClone(registry)
+  stale.platforms[0].md2wechatStatus = "install-ready"
+  assert.match(validateRegistry(stale, now).join("\n"), /review is overdue/)
 })
 
 test("install-ready records cite official installation documentation", () => {
